@@ -7,65 +7,6 @@ let draggedPiece = null;
 let sourceSquare = null;
 let playerRole = null;
 
-// const renderBoard = () => {
-//     const board = chess.board();
-//     boardElement.innerHTML = "";//empty the board 
-//     board.forEach((row, rowindex) => {
-//         row.forEach((square, squareindex) => {
-//             const squareElement = document.createElement("div");
-//             squareElement.classList.add(
-//                 "square",
-//                 (rowindex + squareindex)%2 === 0 ? "Light" : "Dark"
-//             );
-
-//             squareElement.dataset.row =  rowindex;
-//             squareElement.dataset.col = squareindex;
-
-//             if(square){
-//                 const pieceElement = document.createElement("div");
-//                 pieceElement.classList.add(
-//                     "piece",
-//                     square.color === 'w' ? "white" : "black"
-//                 );
-//             pieceElement.innerText = "";
-//             pieceElement.draggable = playerRole === square.color;
-
-//             pieceElement.addEventListener("dragstart", (e) => {
-//                 if(pieceElement.draggable){
-//                     draggedPiece = pieceElement;
-//                     sourceSquare = {row: rowindex, col: squareindex };
-//                     e.dataTransfer.setData("text/plain", "");//no problem coccurs in drag
-//                 }
-//             });
-
-//             pieceElement.addEventListener("dragend", (e) => {
-//                 draggedPiece = null;
-//                 sourceSquare = null; 
-//             });
-
-//             squareElement.appendChild(pieceElement);
-//             }
-
-//             squareElement.addEventListener("dragover" ,function (e) {
-//                 e.preventDefault();
-//             });
-
-//             squareElement.addEventListener("drop", function (e) {
-//                 e.preventDefault();
-//                 if(draggedPiece){
-//                     const targetSource = {
-//                         row: parseInt(squareElement.dataset.row),
-//                         col: parseInt(squareElement.dataset.col),
-//                     };
-
-//                     handleMove(sourceSquare, targetSource);
-//                 }
-//             });
-//             boardElement.appendChild(squareElement);
-//         });
-//     });
-// };
-
 const renderBoard = () => {
     const board = chess.board();
     boardElement.innerHTML = ""; // Empty the board before rendering
@@ -193,8 +134,4 @@ socket.on("move",function(move) {
 
 renderBoard();
 
-// socket.emit("slice");//io function runs when slice received
-// socket.on("slice for everyone",function() {
-//     console.log("SLICE FUCK YEAAH");
-// });
 

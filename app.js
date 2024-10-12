@@ -36,15 +36,6 @@ io.on("connection",function(uniquesocket){//whenever some one has connected the 
     else{
         uniquesocket.emit("spectatorRole");
     }
-    // uniquesocket.on("slice",function(){
-
-    //     io.emit("slice for everyone");//when server sends to everyone connected to server
-    //     console.log("slice received");
-    // });
-
-    // uniquesocket.on("disconnect",function(){
-    //     console.log("Disconnected");//offline
-    // })//finding whether any one is there online or offline
 
     uniquesocket.on("disconnecct",function() {
         if(socket.id === players.white) {
